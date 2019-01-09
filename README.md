@@ -1,124 +1,19 @@
-<p align="center">
-  <img src="https://www.corda.net/wp-content/uploads/2016/11/fg005_corda_b.png" alt="Corda" width="500">
-</p>
+# Bootcamp CorDapp
+This project is the template we will use as a basis for developing a complete CorDapp during the bootcamp. Our CorDapp will allow the issuance of tokens onto the ledger.
 
-# CorDapp Template - Kotlin
+We'll develop the CorDapp using a test-driven approach. At each stage, you'll know your CorDapp is working once the defined tests pass.
 
-Welcome to the Kotlin CorDapp template. The CorDapp template is a stubbed-out CorDapp that you can use to bootstrap 
-your own CorDapps.
+## Set up
 
-**This is the Kotlin version of the CorDapp template. The Java equivalent is 
-[here](https://github.com/corda/cordapp-template-java/).**
+1. Download and install Oracle JDK 8 JVM (minimum supported version 8u171)
+2. Download and install IntelliJ Community Edition (supported versions 2017.x and 2018.x)
+3. Download the `bootcamp-cordapp-kotlin` repository
+4. Open IntelliJ. From the splash screen, click `Import Project`, select the `bootcamp-cordapp-kotlin` folder and click `Open`
+5. Select `Import project from external model > Gradle > Next > Finish`
+  (Gradle will now download all the project dependencies and perform some indexing. This usually takes a minute or so)
+6. Click `File > Project Structure…` and select the Project SDK (Oracle JDK 8, 8u171+)
 
-# Pre-Requisites
+    i. Add a new SDK if required by clicking `New…` and selecting the JDK’s folder
 
-See https://docs.corda.net/getting-set-up.html.
-
-# Usage
-
-## Running the nodes
-
-See https://docs.corda.net/tutorial-cordapp.html#running-the-example-cordapp.
-
-## Interacting with the nodes
-
-### Shell
-
-When started via the command line, each node will display an interactive shell:
-
-    Welcome to the Corda interactive shell.
-    Useful commands include 'help' to see what is available, and 'bye' to shut down the node.
-    
-    Tue Nov 06 11:58:13 GMT 2018>>>
-
-You can use this shell to interact with your node. For example, enter `run networkMapSnapshot` to see a list of 
-the other nodes on the network:
-
-    Tue Nov 06 11:58:13 GMT 2018>>> run networkMapSnapshot
-    [
-      {
-      "addresses" : [ "localhost:10002" ],
-      "legalIdentitiesAndCerts" : [ "O=Notary, L=London, C=GB" ],
-      "platformVersion" : 3,
-      "serial" : 1541505484825
-    },
-      {
-      "addresses" : [ "localhost:10005" ],
-      "legalIdentitiesAndCerts" : [ "O=PartyA, L=London, C=GB" ],
-      "platformVersion" : 3,
-      "serial" : 1541505382560
-    },
-      {
-      "addresses" : [ "localhost:10008" ],
-      "legalIdentitiesAndCerts" : [ "O=PartyB, L=New York, C=US" ],
-      "platformVersion" : 3,
-      "serial" : 1541505384742
-    }
-    ]
-    
-    Tue Nov 06 12:30:11 GMT 2018>>> 
-
-You can find out more about the node shell [here](https://docs.corda.net/shell.html).
-
-### Client
-
-`clients/src/main/kotlin/com/template/Client.kt` defines a simple command-line client that connects to a node via RPC 
-and prints a list of the other nodes on the network.
-
-#### Running the client
-
-##### Via the command line
-
-Run the `runTemplateClient` Gradle task. By default, it connects to the node with RPC address `localhost:10006` with 
-the username `user1` and the password `test`.
-
-##### Via IntelliJ
-
-Run the `Run Template Client` run configuration. By default, it connects to the node with RPC address `localhost:10006` 
-with the username `user1` and the password `test`.
-
-### Webserver
-
-`clients/src/main/kotlin/com/template/webserver/` defines a simple Spring webserver that connects to a node via RPC and 
-allows you to interact with the node over HTTP.
-
-The API endpoints are defined here:
-
-     clients/src/main/kotlin/com/template/webserver/Controller.kt
-
-And a static webpage is defined here:
-
-     clients/src/main/resources/static/
-
-#### Running the webserver
-
-##### Via the command line
-
-Run the `runTemplateServer` Gradle task. By default, it connects to the node with RPC address `localhost:10006` with 
-the username `user1` and the password `test`, and serves the webserver on port `localhost:10050`.
-
-##### Via IntelliJ
-
-Run the `Run Template Server` run configuration. By default, it connects to the node with RPC address `localhost:10006` 
-with the username `user1` and the password `test`, and serves the webserver on port `localhost:10050`.
-
-#### Interacting with the webserver
-
-The static webpage is served on:
-
-    http://localhost:10050
-
-While the sole template endpoint is served on:
-
-    http://localhost:10050/customendpoint
-    
-# Extending the template
-
-You should extend this template as follows:
-
-* Add your own state and contract definitions under `cordapp-contracts-states/src/main/kotlin/`
-* Add your own flow definitions under `cordapp/src/main/kotlin/`
-* Extend or replace the client and webserver under `clients/src/main/kotlin/`
-
-For a guided example of how to extend this template, see the Hello, World! tutorial 
-[here](https://docs.corda.net/hello-world-introduction.html).
+7. Open the `Project` view by clicking `View > Tool Windows > Project`
+8. You can now start implementing!
