@@ -17,3 +17,18 @@ We'll develop the CorDapp using a test-driven approach. At each stage, you'll kn
 
 7. Open the `Project` view by clicking `View > Tool Windows > Project`
 8. You can now start implementing!
+===========================================================================================================
+#TODOS - ONCE ALL TESTS PASS.
+
+$ ./gradlew deployNodes (in project root)
+#Then, cd build/nodes
+$ ./runnodes
+
+#Run Query: (in partyA, partyB shells)
+> run vaultQuery contractStateType: kotlin_bootcamp.TokenState
+
+#Flow: (in PartyB shell)
+> flow start TokenIssueFlow owner: "PartyA",  amount: 200
+
+Run the query again after executing the above flow
+in both shells.
